@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: linear-gradient(to right, #00aaff, #00ff6c);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.calculator-grid {
+  max-width: 40rem;
+  display: grid;
+  margin: 2rem auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: minmax(6rem, auto) repeat(5, 5rem);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid #fff;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 1px 2px 3px #4ec1fa, 0 2px 3px 4px #4ec1fa;
+  transform: translateY(0px);
+}
+
+.calculator-grid > button:hover,
+.calculator-grid > button:focus {
+  background-color: rgba(155, 255, 255, 0.9);
+}
+
+.calculator-grid > button:active {
+  background-color: rgba(255, 255, 255, 0.6);
+  cursor: grabbing;
+  transform: translateY(2px);
+}
+
+.output {
+  /* border: inset 5px solid #00aaff; */
+  grid-column: 1 / -1;
+  background-color: rgba(0, 0, 0, 0.75);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-end;
+  justify-content: space-around;
+  /* padding: 0.75rem; */
+  padding: 0.4rem;
+  padding-right: 0.8rem;
+  word-wrap: break-word;
+  word-break: break-all;
+  font-family: "Montserrat", sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.output .previous-operand {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.5rem;
+}
+.output .current-operand {
+  color: #fff;
+  font-size: 2.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.span-two {
+  grid-column: span 2;
 }
